@@ -1,0 +1,12 @@
+1. Pierwsze uruchomienie:
+ - ściągnąć i zainstaloweć JDK 11 lub nowsze. Może być OpenJDK
+ - ściągnąć i zainstalować scala
+ - ściągnąć i zainstalować apache-kafka https://kafka.apache.org/downloads
+ 
+2. Bodowanie:
+ - wymagany jest apache maven w wersji najnowszej stabilnej. Oracle/OpenJdk JDK w wersji 11 lub wyższej
+ - wywołać w katalogu z projektem wywołanie w konsoli: mvn clean install
+ 
+3. Uruchomienie:
+ - server: java -jar target/dir.sync.server-0.0.1-SNAPSHOT.jar
+ - klient: java -jar target/dir.sync.client-0.0.1-SNAPSHOT.jar

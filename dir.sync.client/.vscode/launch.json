@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "dir.sync.client/pl.dic.sync.client.Main",
+            "projectName": "dir.sync.client",
+            "args": [
+                "rduda",
+                "/home/rafal/tmp/input"
+            ]
+        }
+    ]
+}

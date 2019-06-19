@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "dir.sync.server/pl.dic.sync.server.Main",
+            "projectName": "dir.sync.server"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "dir.sync.server/pl.sync.dir.server.Main",
+            "projectName": "dir.sync.server"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "dir.sync.server/fx.sample.Main",
+            "projectName": "dir.sync.server"
+        }
+    ]
+}
