@@ -5,11 +5,12 @@
 3. download and install newest kafka if needed also proper version scala
 4. run kafka zookeper as bellow:
 bin/zookeeper-server-start.sh /home/rafal/windows/Programowanie/praca_dodatkowa/dir_sync/dir.sync/dir.sync.server/src/main/resources/zooeper.properties 
-5. run kafka as bellow:
+5. Setup proper disks in /home/rafal/windows/Programowanie/praca_dodatkowa/dir_sync/dir.sync/dir.sync.server/src/main/resources/kafka-server.properties. Property name is log.dirs
+6. run kafka as bellow:
 bin/kafka-server-start.sh /home/rafal/windows/Programowanie/praca_dodatkowa/dir_sync/dir.sync/dir.sync.server/src/main/resources/kafka-server.properties > kafka-server.log
-6. go to location with unpacked project and execute:
+7. go to location with unpacked project and execute:
  mvn clean install
-7. Start server with command as bellow:
+8. Start server with command as bellow:
 java -jar dir.sync.server/target/dir.sync.server-1.0.jar
-8. Start client with command as bellow:
+9. Start client with command as bellow:
 java -jar dir.sync.client/target/dir.sync.client-1.0.jar maciek /home/rafal/tmp/input
