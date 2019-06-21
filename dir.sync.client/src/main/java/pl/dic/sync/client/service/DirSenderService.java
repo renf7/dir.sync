@@ -18,9 +18,7 @@ import java.nio.file.WatchService;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
-
 
 @Service
 @Slf4j
@@ -59,16 +57,16 @@ public class DirSenderService {
                 }
             }
 
-//            log.info("Path being watched: " + watchKey.watchable());
+            log.info("Path being watched: " + watchKey.watchable());
 
             if (watchKey.isValid()) {
               for (WatchEvent<?> event : watchKey.pollEvents()) {
-//                log.info("Kind: " + event.kind() + ", Context: " + event.context() + ", Count: " + event.count());
+                log.info("Kind: " + event.kind() + ", Context: " + event.context() + ", Count: " + event.count());
               }
 
               boolean valid = watchKey.reset();
               if (!valid) {
-                // The watchKey is not longer registered
+                  log.info("The watchKey is not longer registered");
               }
             }
           }

@@ -37,6 +37,7 @@ public class Main extends Application {
 			loader.setControllerFactory(this.context::getBean);
 			Parent root = loader.load();
 			Scene scene = new Scene(root,900,500);
+			primaryStage.setTitle("Directory Sync Server");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(IOException e) {
