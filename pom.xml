@@ -7,7 +7,7 @@
 
 	<groupId>pl.dir.sync</groupId>
 	<artifactId>dir.sync.parent</artifactId>
-	<version>1.0</version>
+	<version>1.1</version>
 	<packaging>pom</packaging>
 
 	<name>dir.sync.parent</name>
@@ -18,7 +18,7 @@
 		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
 
-	<modules>
+	<modules> 
 		<module>dir.sync.common</module>
 		<module>dir.sync.client</module>
 		<module>dir.sync.server</module>
@@ -49,6 +49,11 @@
 				<groupId>pl.dir.sync</groupId>
 				<artifactId>dir.sync.client</artifactId>
 				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.kafka</groupId>
+				<artifactId>kafka_2.12</artifactId>
+				<version>2.2.1</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
