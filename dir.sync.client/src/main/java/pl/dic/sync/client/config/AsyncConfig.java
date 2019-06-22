@@ -13,8 +13,8 @@ public class AsyncConfig {
     public Executor taskExecutor() {
 		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
 		executor.setCorePoolSize(2);
-        executor.setMaxPoolSize(2);
-        executor.setQueueCapacity(500);
+        executor.setMaxPoolSize(5);
+        executor.setQueueCapacity(100);
 		executor.setThreadNamePrefix("DirSyncThreadGroup-");
         executor.initialize();
         return executor;

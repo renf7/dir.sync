@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import lombok.extern.slf4j.Slf4j;
-import pl.dir.sync.common.UserDto;
+import pl.dir.sync.common.dto.UserDto;
 
 @Service
 @Slf4j
@@ -26,5 +26,9 @@ public class ServerRestClientService {
 
         myRestTemplate.postForObject(this.registerUrl, registerDto, Void.class);
         log.debug("user registred on server. Serwer will create kafka topic dedicated for user: " + user);
+	}
+
+	public UserDto[] allLoggedIn() {
+        return myRestTemplate.getForObject(this.allRegistered, UserDto[].class);
 	}
 }

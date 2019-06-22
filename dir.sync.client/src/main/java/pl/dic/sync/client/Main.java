@@ -14,7 +14,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import pl.dic.sync.client.controler.WelcomePageController;
-import pl.dic.sync.client.service.DirSenderService;
+import pl.dic.sync.client.service.FileSenderService;
+import pl.dic.sync.client.service.UserConsumerService;
+import pl.dic.sync.client.service.UserProducerService;
 
 @SpringBootApplication
 @EnableAsync
@@ -28,15 +30,16 @@ public class Main extends Application {
 	@Override
 	public void init() throws Exception {
 		this.context = SpringApplication.run(Main.class);
-		// DirSenderService dirSenderService = this.context.getBean(DirSenderService.class);
-		// dirSenderService.init(username, srcPath);
-		// dirSenderService.listenDir();
 	}
 
 	@Override
 	public void stop() throws Exception {
-		DirSenderService dirSenderService = this.context.getBean(DirSenderService.class);
-		dirSenderService.stopListenDir();
+		FileSenderService fileSenderService = this.context.getBean(FileSenderService.class);
+		fileSenderService.stopListenDir();
+		UserConsumerService userConsumerService = this.context.getBean(UserConsumerService.class);
+		userConsumerService.close();
+		UserProducerService userProducerService = this.context.getBean(UserProducerService.class);
+		userProducerService.close();
 		context.close();
 		System.gc();
 		System.runFinalization();
@@ -62,7 +65,7 @@ public class Main extends Application {
 		WelcomePageController welcomePageController = this.context.getBean(WelcomePageController.class);
 		welcomePageController.getUsernameField().setText(username);
 		welcomePageController.getSrcPathField().setText(srcPath);
-		welcomePageController.getDestPathField().setText(destPath);
+		welcomePageController.getDestPathOrShareFileField().setText(destPath);
 	}
 
 

@@ -12,7 +12,6 @@ module dir.sync.server {
     requires spring.core;
     requires spring.kafka;
     requires kafka.clients;
-    // requires org.I0Itec.zkclient;
 
     requires static lombok;
 	requires spring.web;

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.ListTopicsResult;
@@ -14,8 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-// import kafka.admin.AdminUtils;
-import pl.dir.sync.common.UserDto;
+import pl.dir.sync.common.dto.UserDto;
 
 @RestController
 @RequestMapping("/register")
@@ -23,6 +24,7 @@ public class RegisterControler {
     private static final int DESIRED_PARTITION_NUMBER = 5;
     @Autowired
     private AdminClient adminClient;
+    private AtomicReference<List<String>> allRegistredUsers = new AtomicReference(new ArrayList<>());
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public void register(@RequestBody UserDto userDto) throws InterruptedException, ExecutionException {
@@ -30,12 +32,16 @@ public class RegisterControler {
         if (!topicExists(topicName)) {
             createNewTopicWith5Part(topicName);
         }
+        allRegistredUsers.get().add(topicName);
     }
 
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<UserDto> getAllRegistred() {
-    	List<UserDto> allRegistred = new ArrayList<>();
-        return allRegistred;
+        return allRegistredUsers.get().stream().map(u -> {
+            UserDto dto = new UserDto();
+            dto.setUsername(u);
+            return dto;
+        }).collect(Collectors.toList());
     }
     private boolean topicExists(String topicName) throws InterruptedException, ExecutionException {
         ListTopicsResult allTopics = adminClient.listTopics();

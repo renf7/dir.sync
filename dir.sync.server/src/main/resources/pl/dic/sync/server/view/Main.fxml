@@ -11,23 +11,8 @@
   <padding><Insets bottom="10" left="25" right="25" top="25" /></padding>
    <children>
      
-     <Text id="welcome-text" text="Welcome" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
-     
-     <Label text="User Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-     
-     <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-     
-     <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-     
-     <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-     
-     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
-        <children>
-            <Button onAction="#handleSubmitButtonAction" text="Sign In" />
-        </children>
-     </HBox>
-     
-     <Text fx:id="actiontarget" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+     <Text id="welcome-text" text="Directory Synchronizer Server" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+
    </children>
   
   <stylesheets>

@@ -8,6 +8,7 @@ module dir.sync.client {
 	requires spring.boot.autoconfigure;
 	requires spring.context;
 	requires spring.core;
+    requires kafka.clients;
 
 	requires static lombok;
 	requires slf4j.api;
