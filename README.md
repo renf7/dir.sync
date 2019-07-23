@@ -1,5 +1,12 @@
 # dir.sync
 
+WHAT IT IS ?
+
+File sharing tool using Apache Kafka. It synchronized directories
+
+
+HOW TO USE IT:
+
 1. install OpenJDK 11 (recomended) or Oracle JDK version 11. Add environment variable to JAVA_HOME to JDK 11 java directory. Add environment variable to PATH to ${JAVA_HOME}/bin. Remove previous java from PATH if exists.
 2. download and unpack newest maven for your OS. Add to unpacked apache-maven-xxx/bin folder to environment variable PATH
 3. download and install newest kafka if needed also proper version scala
