@@ -1,6 +1,6 @@
 # dir.sync
 
-WHAT IT IS ?
+WHAT IS IT ?
 
 File sharing tool using Apache Kafka. It synchronizes choosen directories for one user or multiple users. Evey user has dedicated queue in kafka. Thanks this new user will have never waited for files transfer. It works with files with every size, thanks file fregmentation to 0.9 Mb. 
 
